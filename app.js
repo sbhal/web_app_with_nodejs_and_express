@@ -3,7 +3,7 @@ var express = require('express');
 //get object for express lib
 var app = express();
 
-var port = 5000;
+var port = process.env.PORT || 5000;
 
 //use 'public' directory as default for lookup for css/js files
 app.use(express.static('public'));

@@ -55,4 +55,7 @@ to inject css you need to override in bower.json for wiredep
 
 sudo npm install --save-dep gulp-inject --> this is used to inject local dependency and not bower ones
 
+sudo npm install --save-dev gulp-nodemon
+create serve wchich will do both inject and style.
+
  
