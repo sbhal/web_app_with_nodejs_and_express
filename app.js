@@ -5,6 +5,8 @@ var app = express();
 
 var port = process.env.PORT || 5000;
 
+var bookRouter = express.Router();
+
 //use 'public' directory as default for lookup for css/js files
 app.use(express.static('public'));
 //index.html in src/views can now be accessed directly
@@ -16,23 +18,43 @@ app.set('view engine', 'ejs');
 
 //app.set('view engine', '.hbs');
 
-app.get('/', function (req, rsp) {
-	rsp.render('index', {title: 'Hello from render', list: ['a','b']}); //renders index.ejs file
+bookRouter.route('/')
+    .get(function(req,rsp){
+        rsp.send('Hello Books New');
+    });
+bookRouter.route('/single')
+    .get(function(req,rsp){
+        rsp.send('Hello Single Books New');
+    });
+    
+app.use('/Books', bookRouter);
+
+app.get('/', function(req, rsp) {
+    rsp.render('index', {
+        title: 'Hello from render',
+        nav: [{
+            Link: '/Books',
+            Text: 'Books'
+        }, {
+            Link: '/Authors',
+            Text: 'Authors'
+        }]
+    }); //renders index.ejs file
 });
 
-app.get('/books', function (req, rsp) {
-	rsp.send('Hello Books from app.get');
+app.get('/books', function(req, rsp) {
+    rsp.send('Hello Books from app.get');
 });
 
 //listen on port with callback function
-app.listen(port, function (err) {
-	console.log('running server on port ' + port);
+app.listen(port, function(err) {
+    console.log('running server on port ' + port);
 });
 
 var hi = 'hello world';
 
 if (true) {
-	console.log('hi');
+    console.log('hi');
 }
 
 console.log(hi);

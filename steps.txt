@@ -18,7 +18,7 @@ create src/views folder and put index.html in it.
 npm is package manager for backend whereas bower is package manager for frontend.
 npm install bower -g --> to install bower globally to access it from cmdline
 
-bower init from app dir
+bower init from app dir 
 
 create .bowerrc --> to tell which directory to install files. Default is root dir but changing it to public/lib
 bower install --save bootstrap
