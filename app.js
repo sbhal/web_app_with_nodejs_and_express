@@ -16,7 +16,7 @@ app.engine('.hbs', handlebars({extname: '.hbs'}));
 app.set('view engine', '.hbs');
 
 app.get('/', function (req, rsp) {
-	rsp.render('index', {list:['a','b']}); //renders index.jade file
+	rsp.render('index', {title: 'Hello from render', list: ['a','b']}); //renders index.hbs file
 });
 
 app.get('/books', function (req, rsp) {
