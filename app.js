@@ -8,24 +8,26 @@ var port = process.env.PORT || 5000;
 //use 'public' directory as default for lookup for css/js files
 app.use(express.static('public'));
 //index.html in src/views can now be accessed directly
-app.use(express.static('src/views'));
+app.set('views', './src/views');
+//app.use(express.static('src/views'));
+app.set('view engine', 'jade');
 
-app.get('/', function(req, rsp){
-	rsp.send('Hello World from app.get');
+app.get('/', function (req, rsp) {
+	rsp.render('index', {list:['a','b']}); //renders index.jade file
 });
 
-app.get('/books', function(req, rsp){
+app.get('/books', function (req, rsp) {
 	rsp.send('Hello Books from app.get');
 });
 
 //listen on port with callback function
-app.listen(port, function(err){
+app.listen(port, function (err) {
 	console.log('running server on port ' + port);
 });
 
 var hi = 'hello world';
 
-if(true){
+if (true) {
 	console.log('hi');
 }
 

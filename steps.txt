@@ -58,4 +58,8 @@ sudo npm install --save-dep gulp-inject --> this is used to inject local depende
 sudo npm install --save-dev gulp-nodemon
 create serve wchich will do both inject and style.
 
+jade is a templating engine similar to handlebars and elr
+sudo npm install --save jade
+change views from static to jade compatible.
+
  
