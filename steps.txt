@@ -1,0 +1,58 @@
+npm install tsd@next -g
+tsd install express --save --> save is used to update package.json file
+
+
+add this to your javascript file
+/// <reference path="typings/tsd.d.ts" />
+
+
+# plugins
+//auto indent
+//tabs for windwos
+//snippets
+
+# create public folder and put js & css folder downloaded from bootstap template in it.
+create src/views folder and put index.html in it.
+
+
+npm is package manager for backend whereas bower is package manager for frontend.
+npm install bower -g --> to install bower globally to access it from cmdline
+
+bower init from app dir
+
+create .bowerrc --> to tell which directory to install files. Default is root dir but changing it to public/lib
+bower install --save bootstrap
+
+update index.html with update location of bootstrap and jquery files. Earlier index.html was using minimum bootstarp but we wanted to use original bootstrap from bower.
+change css/bootstarp.min.css --> lib/bootstrap/dist/css/bootstrap.min.css
+change js/bootstrap.min.js --> lib/bootstrap/dist/js/bootstarp.min.js
+bower install font-awesome --save
+update location of font-awesoem in index.html
+
+gulp can help use not to restart server when making changes to files
+gulp is task manger for web projects
+npm install gulp --save
+
+JSHint can be install for code quality enforcements using gulp. It enforces coding conventions.
+JSCS is about coding style like indentation issues.
+install vscode addons for jshint and jscs along with .jscsrc and .jshintrc files
+sudo npm install jshint -g
+sudo npm install jscs -g
+
+
+sudo npm install -g gulp
+sudo npm install gulp --save-dev --> local installation is also needed and dev dependency as not needed in production
+
+create gulpfile.js
+sudo npm install --save-dev gulp-jshint gulp-jscs jshint-stylish
+
+// for injecting css and js files in index.html automatically instead of manually changing files location
+ sudo npm install --save-dev wiredep
+
+remove js references from bottom of index.html and add < !bower:js --> to inject js files and same for css files at top of index.html
+to inject css you need to override in bower.json for wiredep
+
+
+sudo npm install --save-dep gulp-inject --> this is used to inject local dependency and not bower ones
+
+ 
