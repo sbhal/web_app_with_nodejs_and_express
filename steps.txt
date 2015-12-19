@@ -66,5 +66,8 @@ change views from static to jade compatible.
 #handlebars -- another templating alternative of jade
 sudo npm install --save express-handlebars
 
+#ejs - last templating engine
+sudo npm install --save ejs
+
 
  

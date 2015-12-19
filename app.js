@@ -10,13 +10,14 @@ app.use(express.static('public'));
 //index.html in src/views can now be accessed directly
 app.set('views', './src/views');
 
-var handlebars = require('express-handlebars');
-app.engine('.hbs', handlebars({extname: '.hbs'}));
+app.set('view engine', 'ejs');
+//var handlebars = require('express-handlebars');
+//app.engine('.hbs', handlebars({extname: '.hbs'}));
 
-app.set('view engine', '.hbs');
+//app.set('view engine', '.hbs');
 
 app.get('/', function (req, rsp) {
-	rsp.render('index', {title: 'Hello from render', list: ['a','b']}); //renders index.hbs file
+	rsp.render('index', {title: 'Hello from render', list: ['a','b']}); //renders index.ejs file
 });
 
 app.get('/books', function (req, rsp) {
