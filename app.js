@@ -18,15 +18,37 @@ app.set('view engine', 'ejs');
 
 //app.set('view engine', '.hbs');
 
+var books = [{
+    title: 'War and Peace',
+    genre: 'Historical Fiction',
+    author: 'Leve Tolstoy',
+    read: false
+}, {
+    title: 'War and Peace 2',
+    genre: 'Historical Fiction',
+    author: 'Leve Tolstoy',
+    read: true
+}];
+
 bookRouter.route('/')
-    .get(function(req,rsp){
-        rsp.send('Hello Books New');
+    .get(function(req, rsp) {
+        rsp.render('books', {
+            title: 'Hello from render',
+            nav: [{
+                Link: '/Books',
+                Text: 'Books'
+            }, {
+                Link: '/Authors',
+                Text: 'Authors'
+            }],
+            books: books
+        });
     });
 bookRouter.route('/single')
-    .get(function(req,rsp){
+    .get(function(req, rsp) {
         rsp.send('Hello Single Books New');
     });
-    
+
 app.use('/Books', bookRouter);
 
 app.get('/', function(req, rsp) {
