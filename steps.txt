@@ -70,4 +70,7 @@ sudo npm install --save express-handlebars
 sudo npm install --save ejs
 
 
+sudo npm install --save mssql //needs access to mssql db, better to use mongodb as mssql db setup is cumbersome
+
+
  

@@ -3,7 +3,6 @@ var express = require('express');
 var bookRouter = express.Router();
 var router = function(nav) {
 
-
     var books = [{
         title: 'War and Peace',
         genre: 'Historical Fiction',
