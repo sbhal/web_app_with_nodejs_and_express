@@ -5,7 +5,7 @@ var app = express();
 
 var port = process.env.PORT || 5000;
 
-var bookRouter = express.Router();
+var bookRouter = require('./src/routes/bookRoutes');
 
 //use 'public' directory as default for lookup for css/js files
 app.use(express.static('public'));
@@ -17,37 +17,6 @@ app.set('view engine', 'ejs');
 //app.engine('.hbs', handlebars({extname: '.hbs'}));
 
 //app.set('view engine', '.hbs');
-
-var books = [{
-    title: 'War and Peace',
-    genre: 'Historical Fiction',
-    author: 'Leve Tolstoy',
-    read: false
-}, {
-    title: 'War and Peace 2',
-    genre: 'Historical Fiction',
-    author: 'Leve Tolstoy',
-    read: true
-}];
-
-bookRouter.route('/')
-    .get(function(req, rsp) {
-        rsp.render('books', {
-            title: 'Hello from render',
-            nav: [{
-                Link: '/Books',
-                Text: 'Books'
-            }, {
-                Link: '/Authors',
-                Text: 'Authors'
-            }],
-            books: books
-        });
-    });
-bookRouter.route('/single')
-    .get(function(req, rsp) {
-        rsp.send('Hello Single Books New');
-    });
 
 app.use('/Books', bookRouter);
 
