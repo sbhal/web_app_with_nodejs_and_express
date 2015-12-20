@@ -30,7 +30,7 @@ app.get('/', function(req, rsp) {
             Link: '/Authors',
             Text: 'Authors'
         }]
-    }); //renders index.ejs file
+    });
 });
 
 app.get('/books', function(req, rsp) {
